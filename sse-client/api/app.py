@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify, render_template
 import requests
+import os
 
 app = Flask(__name__)
 
 # Replace with the FQDN of your first service
-FIRST_SERVICE_URL = "http://akram-server.h5f2c8d6dha6gsaf.eastus.azurecontainer.io/books"
+FIRST_SERVICE_URL = os.getenv("FIRST_SERVICE_URL", "https://google.com")
 
 @app.route("/")
 def default():
